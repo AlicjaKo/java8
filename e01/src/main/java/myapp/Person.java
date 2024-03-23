@@ -9,35 +9,44 @@ public class Person {
     private List<String> hobbies;
 
     public Person() {
-
+        this.hobbies = new ArrayList<String>();
     }
 
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (name == null || name.length() == 0) {
+            throw new IllegalArgumentException("Name cannot be null or empty");
+        }
+        this.name = name;
     }
 
     public void setAge(int age) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (age < 0) {
+            throw new IllegalArgumentException("Age cannot be negative");
+        }
+        this.age = age;
     }
 
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.name;
     }
 
     public int getAge() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.age;
     }
 
     public void addHobby(String hobby) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (hobby == null || hobby.length() == 0) {
+            throw new IllegalArgumentException("Hobby cannot be null or empty");
+        }
+        hobbies.add(hobby);
     }
 
     public List<String> getHobbies() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return hobbies;
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.name + " has " + this.age + " years old, and they like " + this.hobbies;
     }
 }
